@@ -1,4 +1,9 @@
-import React from "react";
+import CryptoJS from "crypto-js";
+import React, { useEffect, useRef, useState } from "react";
+import { UAParser } from "ua-parser-js";
+import { v4 as uuidv4 } from "uuid";
+import { getLocation } from "../../utils/getLocation";
+import CameraSvgIcon from "../icons/CameraSvgIcon";
 
 const CaptureAndCollectData = () => {
   const [imageSrc, setImageSrc] = useState(null);
