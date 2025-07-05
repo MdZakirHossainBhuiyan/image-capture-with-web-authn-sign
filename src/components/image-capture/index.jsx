@@ -11,20 +11,19 @@ const ImageCaptureIndex = () => {
           alt="logo"
           className="w-[80px] md:w-[150px] h-[80px] md:h-[150px]"
         />
-        <h2 className="text-[16px] md:text-[24px] font-medium text-slate-600 mt-[16px] md:mt-[24px]">
-          Capture Accident Vehicle Photos
+        <h2 className="text-[16px] md:text-[24px] font-medium text-slate-500 mt-[16px] md:mt-[24px]">
+          Secure & Signed Image Collection
         </h2>
 
         <CaptureAndCollectData />
 
-        <p className="text-[14px] md:text-[16px] text-center text-slate-600 mt-[16px] md:mt-[24px]">
-          Please take clear photos of the damaged vehicle from multiple angles.
-          Make sure the lighting is sufficient and the entire vehicle or damaged
-          area is visible.
+        <p className="text-[14px] md:text-[16px] text-center text-slate-400 mt-[16px] md:mt-[24px]">
+          Capture images with location and sensor data. Each image is securely
+          hashed and signed for authenticity.
         </p>
       </div>
 
-      <div className="mt-[40px] md:mt-0">
+      <div className="mt-[40px] md:mt-[40px]">
         <h4 className="italic text-[14px] text-slate-400">
           Developed by: Md Zakir Hossain Bhuiyan
         </h4>
