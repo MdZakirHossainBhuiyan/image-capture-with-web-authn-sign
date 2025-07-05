@@ -13,7 +13,7 @@ const ImageCaptureIndex = () => {
             <div>
               <img src={logo} alt="logo" className="w-[50px] h-[50px]" />
             </div>
-            <div>
+            <div className="h-full flex flex-1 items-center justify-start bg-amber-100">
               <h2 className="text-[14px] font-medium text-slate-500">
                 Secure & Signed Image Collection
               </h2>
