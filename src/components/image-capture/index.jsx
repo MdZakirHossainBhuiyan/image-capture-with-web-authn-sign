@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../assets/logo_croped.png";
 import { useCollectedDataStore } from "../../store/collectedDataStore";
 import CaptureAndCollectData from "./capture-and-collect-data";
 
 const ImageCaptureIndex = () => {
-  // const [isCapturedImage, setIsCapturedImage] = useState(false);
-  // const isCapturedImage = useCollectedDataStore(
-  //   (state) => state.isCapturedImage
-  // );
-  const { isCapturedImage } = useCollectedDataStore();
-  const [imageSrc, setImageSrc] = useState(null);
+  const { isCapturedImage, imageSrc } = useCollectedDataStore();
 
   return (
     <div className="w-full md:w-[30%] h-auto md:min-h-[80%] bg-white rounded-[8px] md:rounded-[16px] p-[12px] md:p-[24px] flex flex-col items-center justify-between">
@@ -48,10 +43,7 @@ const ImageCaptureIndex = () => {
             Secure & Signed Image Collection
           </h2>
 
-          <CaptureAndCollectData
-            // setIsCapturedImage={setIsCapturedImage}
-            setImageSrc={setImageSrc}
-          />
+          <CaptureAndCollectData />
 
           <p className="text-[14px] md:text-[16px] text-center text-slate-400 mt-[16px] md:mt-[24px]">
             Capture images with location and sensor data. Each image is securely

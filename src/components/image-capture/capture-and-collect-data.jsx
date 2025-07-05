@@ -6,11 +6,9 @@ import { useCollectedDataStore } from "../../store/collectedDataStore";
 import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 
-const CaptureAndCollectData = ({ setImageSrc }) => {
-  // const setIsCapturedImage = useCollectedDataStore(
-  //   (state) => state.setIsCapturedImage
-  // );
-  const { setIsCapturedImage } = useCollectedDataStore();
+const CaptureAndCollectData = () => {
+  const { isCapturedImage, setIsCapturedImage, setImageSrc } =
+    useCollectedDataStore();
 
   // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
@@ -413,7 +411,7 @@ const CaptureAndCollectData = ({ setImageSrc }) => {
 
   return (
     <div className="w-full">
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center gap-[8px]">
         <button
           type="button"
           onClick={openCamera}
@@ -421,21 +419,18 @@ const CaptureAndCollectData = ({ setImageSrc }) => {
         >
           <CameraSvgIcon className="w-[18px] md:w-[24px] h-[18px] md:h-[24px]" />
           <span className="text-[14px] md:text-[16px] font-bold">
-            Capture Image
+            {isCapturedImage ? "Capture Again" : "Capture Image"}
           </span>
         </button>
-      </div>
-
-      {c2paData && (
-        <div className="my-4 flex justify-center">
+        {c2paData && (
           <button
             onClick={downloadC2paData}
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
           >
             Download C2PA JSON
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Hidden file input which triggers the camera */}
       <input
