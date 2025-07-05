@@ -2,10 +2,16 @@ import CryptoJS from "crypto-js";
 import React, { useEffect, useRef, useState } from "react";
 import { UAParser } from "ua-parser-js";
 import { v4 as uuidv4 } from "uuid";
+import { useCollectedDataStore } from "../../store/collectedDataStore";
 import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 
-const CaptureAndCollectData = ({ setIsCapturedImage, setImageSrc }) => {
+const CaptureAndCollectData = ({ setImageSrc }) => {
+  // const setIsCapturedImage = useCollectedDataStore(
+  //   (state) => state.setIsCapturedImage
+  // );
+  const { setIsCapturedImage } = useCollectedDataStore();
+
   // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
   const [motionData, setMotionData] = useState(null);

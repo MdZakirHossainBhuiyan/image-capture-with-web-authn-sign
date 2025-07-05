@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo_croped.png";
+import { useCollectedDataStore } from "../../store/collectedDataStore";
 import CaptureAndCollectData from "./capture-and-collect-data";
 
 const ImageCaptureIndex = () => {
-  const [isCapturedImage, setIsCapturedImage] = useState(false);
+  // const [isCapturedImage, setIsCapturedImage] = useState(false);
+  // const isCapturedImage = useCollectedDataStore(
+  //   (state) => state.isCapturedImage
+  // );
+  const { isCapturedImage } = useCollectedDataStore();
   const [imageSrc, setImageSrc] = useState(null);
 
   return (
@@ -44,7 +49,7 @@ const ImageCaptureIndex = () => {
           </h2>
 
           <CaptureAndCollectData
-            setIsCapturedImage={setIsCapturedImage}
+            // setIsCapturedImage={setIsCapturedImage}
             setImageSrc={setImageSrc}
           />
 
