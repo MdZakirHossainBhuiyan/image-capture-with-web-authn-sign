@@ -4,6 +4,7 @@ import CaptureAndCollectData from "./capture-and-collect-data";
 
 const ImageCaptureIndex = () => {
   const [isCapturedImage, setIsCapturedImage] = useState(false);
+  const [imageSrc, setImageSrc] = useState(null);
 
   return (
     <div className="w-full md:w-[30%] h-auto md:min-h-[80%] bg-white rounded-[8px] md:rounded-[16px] p-[12px] md:p-[24px] flex flex-col items-center justify-between">
@@ -13,11 +14,22 @@ const ImageCaptureIndex = () => {
             <div>
               <img src={logo} alt="logo" className="w-[50px] h-[50px]" />
             </div>
-            <div className="h-[50px] flex flex-1 items-center justify-start bg-amber-100">
+            <div className="h-[50px] flex flex-1 items-center justify-start">
               <h2 className="text-[14px] font-medium text-slate-500">
                 Secure & Signed Image Collection
               </h2>
             </div>
+          </div>
+
+          {/* Display captured image */}
+          <div className="my-3">
+            {imageSrc && (
+              <img
+                src={imageSrc}
+                alt={`Captured`}
+                className="w-full h-[200px] rounded-[12px]"
+              />
+            )}
           </div>
         </div>
       ) : (
@@ -31,7 +43,10 @@ const ImageCaptureIndex = () => {
             Secure & Signed Image Collection
           </h2>
 
-          <CaptureAndCollectData setIsCapturedImage={setIsCapturedImage} />
+          <CaptureAndCollectData
+            setIsCapturedImage={setIsCapturedImage}
+            setImageSrc={setImageSrc}
+          />
 
           <p className="text-[14px] md:text-[16px] text-center text-slate-400 mt-[16px] md:mt-[24px]">
             Capture images with location and sensor data. Each image is securely

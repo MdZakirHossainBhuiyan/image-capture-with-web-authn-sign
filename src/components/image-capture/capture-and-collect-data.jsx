@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 
-const CaptureAndCollectData = ({ setIsCapturedImage }) => {
-  const [imageSrc, setImageSrc] = useState(null);
+const CaptureAndCollectData = ({ setIsCapturedImage, setImageSrc }) => {
+  // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
   const [motionData, setMotionData] = useState(null);
   const [error, setError] = useState("");
@@ -440,17 +440,6 @@ const CaptureAndCollectData = ({ setIsCapturedImage }) => {
         onChange={handleCapture}
         style={{ display: "none" }}
       />
-
-      {/* Display captured image */}
-      <div className="my-3">
-        {imageSrc && (
-          <img
-            src={imageSrc}
-            alt={`Captured`}
-            className="w-full h-[200px] rounded-[12px]"
-          />
-        )}
-      </div>
 
       {error && <div className="my-3 text-red-400 italic">Error: {error}</div>}
 
