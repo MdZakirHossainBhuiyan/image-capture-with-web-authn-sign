@@ -31,7 +31,7 @@ const ImageCaptureIndex = () => {
             Secure & Signed Image Collection
           </h2>
 
-          <CaptureAndCollectData />
+          <CaptureAndCollectData setIsCapturedImage={setIsCapturedImage} />
 
           <p className="text-[14px] md:text-[16px] text-center text-slate-400 mt-[16px] md:mt-[24px]">
             Capture images with location and sensor data. Each image is securely

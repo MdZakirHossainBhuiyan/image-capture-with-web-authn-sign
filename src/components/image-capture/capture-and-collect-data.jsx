@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 
-const CaptureAndCollectData = () => {
+const CaptureAndCollectData = ({ setIsCapturedImage }) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
   const [motionData, setMotionData] = useState(null);
@@ -271,6 +271,7 @@ const CaptureAndCollectData = () => {
   };
 
   const handleCapture = async (event) => {
+    setIsCapturedImage(true);
     setStartCollectingMotionData(false);
     const file = event.target.files[0];
     if (file) {
