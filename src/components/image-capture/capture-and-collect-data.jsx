@@ -7,8 +7,16 @@ import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 
 const CaptureAndCollectData = () => {
-  const { isCapturedImage, setIsCapturedImage, setImageSrc } =
-    useCollectedDataStore();
+  // const { isCapturedImage, setIsCapturedImage, setImageSrc } =
+  //   useCollectedDataStore();
+
+  const setIsCapturedImage = useCollectedDataStore(
+    (state) => state.setIsCapturedImage
+  );
+  const isCapturedImage = useCollectedDataStore(
+    (state) => state.isCapturedImage
+  );
+  const imageSrc = useCollectedDataStore((state) => state.imageSrc);
 
   // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
