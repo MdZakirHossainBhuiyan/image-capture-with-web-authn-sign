@@ -13,7 +13,7 @@ const ImageCaptureIndex = () => {
   return (
     <div className="w-full md:w-[30%] h-auto md:min-h-[80%] bg-white rounded-[8px] md:rounded-[16px] p-[12px] md:p-[24px] flex flex-col items-center justify-between">
       {isCapturedImage ? (
-        <div>
+        <div className="w-full">
           <div className="w-full flex items-start gap-[16px]">
             <div>
               <img src={logo} alt="logo" className="w-[50px] h-[50px]" />
