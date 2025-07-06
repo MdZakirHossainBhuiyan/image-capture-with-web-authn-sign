@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useCollectedDataStore } from "../../store/collectedDataStore";
 import { getLocation } from "../../utils/getLocation";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
+import DownloadSvgIcon from "../icons/DownloadSvgIcon";
 
 const CaptureAndCollectData = () => {
   // const { isCapturedImage, setIsCapturedImage, setImageSrc } =
@@ -419,23 +420,26 @@ const CaptureAndCollectData = () => {
 
   return (
     <div className="w-full">
-      <div className="w-full flex items-center justify-center gap-[8px]">
+      <div className="w-full flex flex-cil items-center justify-center gap-[8px]">
         <button
           type="button"
           onClick={openCamera}
-          className="flex items-center gap-[8px] mt-[24px] md:mt-[50px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-green-400 hover:bg-green-500 cursor-pointer rounded-[8px] text-white"
+          className="flex items-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-green-400 hover:bg-green-500 cursor-pointer rounded-[8px] text-white"
         >
           <CameraSvgIcon className="w-[18px] md:w-[24px] h-[18px] md:h-[24px]" />
-          <span className="text-[14px] md:text-[16px] font-bold">
-            {isCapturedImage ? "Capture Again" : "Capture Image"}
+          <span className="text-[12px] md:text-[16px] font-bold">
+            {isCapturedImage ? "Capture Another" : "Capture Image"}
           </span>
         </button>
         {c2paData && (
           <button
             onClick={downloadC2paData}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+            className="flex items-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-blue-400 hover:bg-blue-500 cursor-pointer rounded-[8px] text-white"
           >
-            Download C2PA JSON
+            <DownloadSvgIcon className="w-[18px] md:w-[24px] h-[18px] md:h-[24px]" />
+            <span className="text-[12px] md:text-[16px] font-bold">
+              Download C2PA JSON
+            </span>
           </button>
         )}
       </div>
@@ -451,15 +455,6 @@ const CaptureAndCollectData = () => {
       />
 
       {error && <div className="my-3 text-red-400 italic">Error: {error}</div>}
-
-      {/* <div>Signature: {JSON.stringify(signature)}</div>
-      <div>Hash: {JSON.stringify(hash)}</div>
-      <div>Public Key: {JSON.stringify(pubKey)}</div>
-      <div>Assertion: {JSON.stringify(assertionKey)}</div> */}
-
-      {/* {webAuthnCredential ? JSON.stringify(webAuthnCredential?.id) : "hahaha"} */}
-
-      {c2paData && JSON.stringify(c2paData)}
 
       {c2paData && (
         <div className="w-full flex flex-col gap-[4px]">

@@ -31,7 +31,7 @@ const ImageCaptureIndex = () => {
               <img
                 src={imageSrc}
                 alt={`Captured`}
-                className="w-full h-[200px] rounded-[12px]"
+                className="w-full h-[200px] rounded-[6px]"
               />
             )}
           </div>
