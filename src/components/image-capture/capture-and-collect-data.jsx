@@ -424,7 +424,9 @@ const CaptureAndCollectData = () => {
         <button
           type="button"
           onClick={openCamera}
-          className="flex items-center justify-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-green-400 hover:bg-green-500 cursor-pointer rounded-[8px] text-white"
+          className={`${
+            isCapturedImage ? "w-full" : "w-auto"
+          } flex items-center justify-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-green-400 hover:bg-green-500 cursor-pointer rounded-[8px] text-white`}
         >
           <CameraSvgIcon className="w-[18px] md:w-[24px] h-[18px] md:h-[24px]" />
           <span className="text-[12px] md:text-[16px] font-bold">
@@ -434,7 +436,7 @@ const CaptureAndCollectData = () => {
         {c2paData && (
           <button
             onClick={downloadC2paData}
-            className="flex items-center justify-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-blue-400 hover:bg-blue-500 cursor-pointer rounded-[8px] text-white"
+            className="w-full flex items-center justify-center gap-[8px] px-[12px] md:px-[20px] py-[6px] md:py-[12px] bg-blue-400 hover:bg-blue-500 cursor-pointer rounded-[8px] text-white"
           >
             <DownloadSvgIcon className="w-[18px] md:w-[24px] h-[18px] md:h-[24px]" />
             <span className="text-[12px] md:text-[16px] font-bold">
