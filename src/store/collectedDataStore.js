@@ -5,5 +5,5 @@ export const useCollectedDataStore = create((set) => ({
   imageSrc: null,
 
   setIsCapturedImage: (state) => set(() => ({ isCapturedImage: state })),
-  setImageSrc: (state) => set(() => ({ imageSrc: state })),
+  setImageSrc: (src) => set(() => ({ imageSrc: src })),
 }));
