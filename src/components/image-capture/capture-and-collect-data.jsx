@@ -4,13 +4,11 @@ import { UAParser } from "ua-parser-js";
 import { v4 as uuidv4 } from "uuid";
 import { useCollectedDataStore } from "../../store/collectedDataStore";
 import { getLocation } from "../../utils/getLocation";
+import { getMotionData } from "../../utils/getMotionData";
 import CameraSvgIcon from "../icons/CameraSvgIcon";
 import DownloadSvgIcon from "../icons/DownloadSvgIcon";
 
 const CaptureAndCollectData = () => {
-  // const { isCapturedImage, setIsCapturedImage, setImageSrc } =
-  //   useCollectedDataStore();
-
   const setIsCapturedImage = useCollectedDataStore(
     (state) => state.setIsCapturedImage
   );
@@ -55,48 +53,6 @@ const CaptureAndCollectData = () => {
     if (inputRef.current) {
       inputRef.current.click();
     }
-  };
-
-  const getMotionData = () => {
-    return new Promise((resolve, reject) => {
-      if (!window.DeviceMotionEvent) {
-        return reject(setError("DeviceMotionEvent is not supported"));
-      }
-
-      // iOS 13+ requires permission
-      if (typeof DeviceMotionEvent.requestPermission === "function") {
-        DeviceMotionEvent.requestPermission()
-          .then((response) => {
-            if (response !== "granted") {
-              return reject(setError("Motion permission denied"));
-            }
-
-            captureMotion(resolve);
-          })
-          .catch(reject);
-      } else {
-        // Android or older iOS
-        captureMotion(resolve);
-      }
-
-      function captureMotion(resolve) {
-        const handler = (event) => {
-          window.removeEventListener("devicemotion", handler);
-
-          const motionData = {
-            acceleration: event.acceleration,
-            accelerationIncludingGravity: event.accelerationIncludingGravity,
-            rotationRate: event.rotationRate,
-            interval: event.interval,
-          };
-
-          resolve(motionData);
-        };
-
-        // Listen for a single motion event
-        window.addEventListener("devicemotion", handler, { once: true });
-      }
-    });
   };
 
   const getDeviceInfo = () => {
