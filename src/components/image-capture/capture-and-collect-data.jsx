@@ -16,7 +16,7 @@ const CaptureAndCollectData = () => {
   const isCapturedImage = useCollectedDataStore(
     (state) => state.isCapturedImage
   );
-  const imageSrc = useCollectedDataStore((state) => state.imageSrc);
+  const setImageSrc = useCollectedDataStore((state) => state.setImageSrc);
 
   // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
