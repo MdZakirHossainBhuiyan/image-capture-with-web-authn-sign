@@ -1,8 +1,6 @@
-import { useCollectedDataStore } from "../store/collectedDataStore";
+// const setError = useCollectedDataStore((state) => state.setError);
 
-const setError = useCollectedDataStore((state) => state.setError);
-
-export const getMotionData = () => {
+export const getMotionData = ({ setError }) => {
   return new Promise((resolve, reject) => {
     if (!window.DeviceMotionEvent) {
       return reject(setError("DeviceMotionEvent is not supported"));

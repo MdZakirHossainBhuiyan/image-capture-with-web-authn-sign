@@ -277,7 +277,7 @@ const CaptureAndCollectData = () => {
 
       // Get motion data
       try {
-        motion = await getMotionData();
+        motion = await getMotionData(setError);
         setMotionData(motion);
       } catch (err) {
         console.error("Motion error:", err.message);
