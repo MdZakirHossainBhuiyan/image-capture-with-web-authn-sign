@@ -30,7 +30,7 @@ export const getMotionData = ({ setError }) => {
           rotationRate: event.rotationRate,
           interval: event.interval,
         };
-        setError("test");
+        // setError("test");
 
         resolve(motionData);
       };
