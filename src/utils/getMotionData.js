@@ -1,5 +1,3 @@
-// const setError = useCollectedDataStore((state) => state.setError);
-
 export const getMotionData = ({ setError }) => {
   return new Promise((resolve, reject) => {
     if (!window.DeviceMotionEvent) {
@@ -32,6 +30,7 @@ export const getMotionData = ({ setError }) => {
           rotationRate: event.rotationRate,
           interval: event.interval,
         };
+        setError("test");
 
         resolve(motionData);
       };

@@ -16,11 +16,13 @@ const CaptureAndCollectData = () => {
     (state) => state.isCapturedImage
   );
   const setImageSrc = useCollectedDataStore((state) => state.setImageSrc);
+  const setError = useCollectedDataStore((state) => state.setError);
+  const error = useCollectedDataStore((state) => state.error);
 
   // const [imageSrc, setImageSrc] = useState(null);
   const [gpsData, setGpsData] = useState(null);
   const [motionData, setMotionData] = useState(null);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const [timeStamp, setTimeStamp] = useState("");
   const inputRef = useRef(null);
   const [imageType, setImageType] = useState("");
